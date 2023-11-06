@@ -13,9 +13,14 @@ data "aws_instance" "foo" {
   instance_id = "i-0b57d513ef3cad305"
 }
 
-output "instance" {
+output "public_ip" {
   value = data.aws_instance.foo.public_ip
 }
+
+output "private_ip" {
+  value = data.aws_instance.foo.private_ip
+}
+
 #Arguments are inputs which we will provide and as an output we will fetch attributes
 #most_recent
 #name_regex
