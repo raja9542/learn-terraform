@@ -82,3 +82,13 @@ output "demo1" {
   value = var.demo1
 }
 
+# variables form shell env variables
+
+variable "demo2" {
+  default = null
+}
+
+output "demo2" {
+  value = var.demo2
+}
+
