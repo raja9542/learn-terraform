@@ -4,6 +4,7 @@ data "aws_ami" "example" {
   owners           = ["973714476881"]
 
 }
+
 #Arguments
 #most_recent
 #name_regex
