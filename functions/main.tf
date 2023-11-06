@@ -13,3 +13,7 @@ data "aws_ami" "centos8" {
   owners           = ["973714476881"]
 
 }
+output "instance_profile" {
+# value = "aws_instance.web.*.id[1]"
+  value = try("aws_instance.web.*.id[1]", "")
+}
