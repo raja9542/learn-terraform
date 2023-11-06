@@ -14,6 +14,6 @@ data "aws_ami" "centos8" {
 
 }
 output "instance_profile" {
-# value = "aws_instance.web.*.id[1]"
-  value = try(aws_instance.web.*.id[1], "")
+# value = "aws_instance.web.*.id[1]" -- this will give error bcz id[0] exists there is only 1 instance resource id[1] causes error
+  value = try(aws_instance.web.*.id[1], "") # try evaluates all of its argument expressions in turn and returns the result of the first one that does not produce any errors.
 }
