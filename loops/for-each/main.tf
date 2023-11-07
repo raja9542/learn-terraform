@@ -16,13 +16,10 @@ data "aws_ami" "centos8" {
 
 }
 
-#output "public_ip" {
-##  without Count
-##  value = aws_instance.web.public_ip
-#
-## with count
-#  value = aws_instance.web.*.public_ip
-#}
+output "public_ip" {
+
+  value = aws_instance.web["cart"].public_ip
+}
 
 variable "components" {
   default = {
