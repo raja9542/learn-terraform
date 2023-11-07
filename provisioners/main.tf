@@ -11,7 +11,7 @@ data "aws_ami" "centos8" {
 resource "aws_instance" "web" {
   ami           = data.aws_ami.centos8.id
   instance_type = "t3.micro"
-  vpc_security_group_ids = [aws_security_group.allow_all.id]
+  vpc_security_group_ids = [aws_security_group.allow_tls.id]
 
   tags = {
     Name = "test-centos8"
@@ -27,14 +27,14 @@ resource "null_resource" "provision" {
     }
 
     inline = [
-    "false"
+    "echo Hello"
     ]
 
   }
 }
 
-resource "aws_security_group" "allow_all" {
-  name        = "allow_all"
+resource "aws_security_group" "allow_tls" {
+  name        = "allow_tls"
   description = "Allow TLS inbound traffic"
 
 
@@ -55,6 +55,6 @@ resource "aws_security_group" "allow_all" {
   }
 
   tags = {
-    Name = "allow_all"
+    Name = "allow_tls"
   }
 }
