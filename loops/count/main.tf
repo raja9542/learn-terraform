@@ -1,3 +1,4 @@
+# if data is list
 resource "aws_instance" "web" {
   count         = length(var.components)
   ami           = data.aws_ami.centos8.id
