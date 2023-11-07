@@ -1,5 +1,5 @@
 resource "aws_instance" "web" {
-  count         = 2
+  count         = 1
   ami           = data.aws_ami.centos8.id
   instance_type = "t3.micro"
 
