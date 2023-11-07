@@ -17,8 +17,9 @@ data "aws_ami" "centos8" {
 }
 
 output "public_ip" {
-
-  value = aws_instance.web["cart"].public_ip
+  value = {
+    for k, v in aws_instance.web : k => v.public_ip
+  }
 }
 
 variable "components" {
