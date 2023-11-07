@@ -16,6 +16,19 @@ resource "aws_instance" "web" {
   tags = {
     Name = "test-centos8"
   }
+  # provisioners can be inside the resource also but if provisioner fails the whole instance recreation occurs.. to avoid this we create provisoners in null_resources
+#  provisioner "remote-exec" {
+#    connection {
+#      host = self.public_ip
+#      user = "centos"
+#      password = "DevOps321"
+#    }
+#
+#    inline = [
+#      "echo Hello"
+#    ]
+#
+#  }
 }
 
 resource "null_resource" "provision" {
