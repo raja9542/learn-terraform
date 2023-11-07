@@ -20,3 +20,7 @@ variable "components" {
 
 ## always iterate modules, not the resources
 ## always map the data and use for_each loop
+
+output "public_ip" {
+  value = module.ec2
+}

@@ -21,6 +21,10 @@ data "aws_ami" "centos8" {
 #  }
 #}
 
-
 variable "name" {}
 variable "instance_type" {}
+
+# send output data to modules and in modules we consume it
+output "ec2" {
+  value = aws_instance.web
+}
