@@ -34,7 +34,7 @@ resource "null_resource" "provision" {
 }
 
 resource "aws_security_group" "allow_all" {
-  name        = "allow_tls"
+  name        = "allow_all"
   description = "Allow TLS inbound traffic"
 
 
